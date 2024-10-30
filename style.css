@@ -1,0 +1,18 @@
+body{
+    background-color: #1e351e;
+}
+
+#Health{
+    color: aliceblue;
+    margin: 10px;
+}
+
+#Finances{
+    color: aliceblue;
+    margin: 10px;
+}
+
+#Social{
+    color: aliceblue;
+    margin: 10px;
+}
