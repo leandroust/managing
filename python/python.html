@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <code>
+
+import pygame
+import sys
+
+
+escala = 1000000
+
+
+class planeta:
+    def __init__(self, radius, distance_from_son, color) -> None:
+        self.radius = radius
+        self.distance_from_son = distance_from_son
+        self.color = color
+
+
+    def draw(self):
+        if self.radius<1:
+            self.radius = 1
+        pygame.draw.circle(window, self.color, (WIDTH/2+self.distance_from_son, HEIGHT/2), self.radius)
+
+
+son = planeta(1392000/escala,0/escala, (255, 204, 51))
+mercury = planeta(4880/escala, 57910000/escala, (169, 169, 169))
+venus = planeta(12104/escala, 108200000/escala, (227, 191, 76))
+earth = planeta(12742/escala, 149600000/escala, (0, 102, 204))
+mars = planeta(6780/escala, 227940000/escala, (210, 65, 48))
+jupyter = planeta(139822/escala, 778330000/escala, (216, 161, 100))
+saturn = planeta(116464/escala, 1429400000/escala, (240, 208, 122))
+urane = planeta(50724/escala, 2870990000/escala, (173, 216, 230))
+neptune = planeta(49248/escala, 4504300000/escala, (72, 108, 176))
+pluton = planeta(2274/escala, 5913520000/escala, (168, 149, 133))
+
+list_planets = [son,mercury,venus,earth,mars,jupyter,saturn,urane,neptune,pluton]
+
+#---------------------------------------------------------------------------------------------
+pygame.init()
+
+# Set up the window
+WIDTH, HEIGHT = 16000, 500
+window = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Draw with Pygame")
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+
+# Fill the background with white
+window.fill(BLACK)
+
+def draw(List):
+    
+    for x in List:
+        x.draw()
+
+
+
+# Main loop
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    draw(list_planets)
+    # Update the display
+    pygame.display.flip()
+    </code>
+</body>
+</html>
